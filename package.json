@@ -1,0 +1,21 @@
+{
+  "name": "calendar",
+  "version": "1.0.0",
+  "description": "A personal calendar with backend of node + postgresql",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "nodemon ."
+  },
+  "author": "Mark",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.13.0",
+    "eslint-config-recommended": "^4.1.0",
+    "nodemon": "^2.0.5"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^20.0.1",
+    "dotenv": "^8.2.0"
+  }
+}
