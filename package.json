@@ -8,6 +8,7 @@
   },
   "author": "Mark",
   "license": "ISC",
+  "private": true,
   "devDependencies": {
     "eslint": "^7.11.0",
     "eslint-config-prettier": "^6.13.0",
@@ -16,6 +17,8 @@
   },
   "dependencies": {
     "@hapi/hapi": "^20.0.1",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "fs-extra": "^9.0.1",
+    "pg": "^8.4.1"
   }
 }

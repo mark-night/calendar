@@ -22,16 +22,12 @@ module.exports = {
   port: PORT,
   url: HOST_URL,
   cookieSecret: COOKIE_SECRET,
-  sql: {
-    server: DB_HOST,
+  sqlConfig: {
+    host: DB_HOST,
     port: DB_PORT,
-    url: DB_URL,
-    db: DATABASE,
+    database: DATABASE,
     user: DB_USER,
     password: DB_PASSWORD,
-    options: {
-      enableArithAbort: true,
-    },
   },
   okta: {
     url: OKTA_ORG_URL,

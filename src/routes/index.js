@@ -1,9 +1,12 @@
 'use strict';
 
-module.exports.register = async server => {
-  server.route({
+const api = require('./api');
+
+module.exports = [
+  {
     method: 'GET',
     path: '/',
     handler: async (req, h) => 'Welcome to Hapi Server!',
-  });
-};
+  },
+  ...api,
+];
