@@ -1,5 +1,9 @@
 'use strict';
 
-const sql = require('./sql');
+const inert = require('@hapi/inert');
+const vision = require('@hapi/vision');
 
-module.exports = [sql];
+const sql = require('./sql');
+const auth = require('./auth');
+
+module.exports = [auth, inert, vision, sql];

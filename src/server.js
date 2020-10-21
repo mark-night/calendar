@@ -1,6 +1,7 @@
 'use strict';
 
 const Hapi = require('@hapi/hapi');
+const ejs = require('ejs');
 const routes = require('./routes');
 const plugins = require('./plugins');
 
@@ -14,6 +15,16 @@ module.exports = async config => {
 
   // register plugins (like mounting middlewares in express)
   await server.register(plugins);
+
+  // define view engine to use
+  // must be set after plugin Vision (which is the template rendering support
+  // for Hapi) is registered
+  server.views({
+    engines: { ejs },
+    relativeTo: __dirname,
+    path: 'templates',
+    layout: true,
+  });
 
   // mount routes
   await server.route(routes);

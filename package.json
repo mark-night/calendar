@@ -16,8 +16,14 @@
     "nodemon": "^2.0.5"
   },
   "dependencies": {
+    "@hapi/bell": "^12.1.1",
+    "@hapi/boom": "^9.1.0",
+    "@hapi/cookie": "^11.0.2",
     "@hapi/hapi": "^20.0.1",
+    "@hapi/inert": "^6.0.3",
+    "@hapi/vision": "^6.0.1",
     "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
     "fs-extra": "^9.0.1",
     "pg": "^8.4.1"
   }
