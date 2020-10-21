@@ -22,9 +22,16 @@
     "@hapi/hapi": "^20.0.1",
     "@hapi/inert": "^6.0.3",
     "@hapi/vision": "^6.0.1",
+    "axios": "^0.20.0",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "fs-extra": "^9.0.1",
-    "pg": "^8.4.1"
+    "luxon": "^1.25.0",
+    "materialize-css": "^1.0.0",
+    "moment": "^2.29.1",
+    "pg": "^8.4.1",
+    "vue": "^2.6.12",
+    "vue-datetime": "^1.0.0-beta.14",
+    "weekstart": "^1.0.1"
   }
 }

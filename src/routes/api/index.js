@@ -2,4 +2,4 @@
 
 const events = require('./events');
 
-module.exports = [events];
+module.exports = events;
