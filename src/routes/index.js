@@ -11,7 +11,7 @@ module.exports = [
     method: 'GET',
     path: '/',
     handler: async (req, h) =>
-      h.view('index', { title: 'Home', message: 'Hello world' }),
+      h.view('index', { title: 'Personal Calendar', message: 'Welcome!' }),
     options: {
       auth: { mode: 'try' },
     },
@@ -27,5 +27,6 @@ module.exports = [
         path: 'dist',
       },
     },
+    options: { auth: false },
   },
 ];

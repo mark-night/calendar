@@ -4,7 +4,10 @@
   "description": "A personal calendar with backend of node + postgresql",
   "main": "src/app.js",
   "scripts": {
-    "dev": "nodemon ."
+    "dev": "nodemon --watch client --watch src -e js,ejs,sql,vue,css --exec npm run dev:start",
+    "dev:start": "npm-run-all build start",
+    "build": "parcel build client/index.js",
+    "start": "node ."
   },
   "author": "Mark",
   "license": "ISC",
@@ -22,6 +25,8 @@
     "@hapi/hapi": "^20.0.1",
     "@hapi/inert": "^6.0.3",
     "@hapi/vision": "^6.0.1",
+    "@vue/component-compiler-utils": "^3.2.0",
+    "D": "^1.0.0",
     "axios": "^0.20.0",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
@@ -29,9 +34,12 @@
     "luxon": "^1.25.0",
     "materialize-css": "^1.0.0",
     "moment": "^2.29.1",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.4",
     "pg": "^8.4.1",
     "vue": "^2.6.12",
     "vue-datetime": "^1.0.0-beta.14",
+    "vue-template-compiler": "^2.6.12",
     "weekstart": "^1.0.1"
   }
 }

@@ -44,7 +44,7 @@ const addEvent = {
         endTime,
       } = req.payload;
       const userId = req.auth.credentials.profile.id;
-      const res = await events.addEvents(
+      const res = await events.addEvent(
         userId,
         title,
         description,
@@ -67,7 +67,7 @@ const deleteEvent = {
   options: {
     auth: { mode: 'try' },
   },
-  handler: async req => {
+  handler: async (req, h) => {
     if (!req.auth.isAuthenticated) {
       return boom.unauthorized();
     }
@@ -75,7 +75,7 @@ const deleteEvent = {
       const events = req.server.plugins.sql.events;
       const id = req.params.id;
       const userId = req.auth.credentials.profile.id;
-      const res = await events.deleteEvents(id, userId);
+      const res = await events.deleteEvent(id, userId);
       return res.rowCount === 1 ? h.response().code(204) : boom.notFound();
     } catch (error) {
       console.log('Failed deleting event: ', error);
@@ -106,7 +106,7 @@ const updateEvent = {
         endTime,
       } = req.payload;
       const userId = req.auth.credentials.profile.id;
-      const res = await events.updateEvents(
+      const res = await events.updateEvent(
         id,
         userId,
         title,
