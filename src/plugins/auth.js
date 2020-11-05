@@ -3,14 +3,14 @@
 const bell = require('@hapi/bell'); // oAuth plugin
 const cookie = require('@hapi/cookie'); // session cookie plugin
 
-// intend to indicate if served over SSL, assuming true if in production mode
-const isSecure = process.env.NODE_ENV === 'production';
+const { appURL } = require('../config');
 
 module.exports = {
   name: 'auth',
   register: async server => {
     await server.register([bell, cookie]);
     const config = server.app.config;
+    const isSecure = config.isSSL.toLowerCase() === 'true';
 
     // auth strategy to use session contained authentication
     server.auth.strategy(
@@ -23,7 +23,7 @@ module.exports = {
           password: config.cookieSecret,
           isSecure,
         },
-        redirectTo: '/auth/callback',
+        redirectTo: appURL + 'auth/callback',
       }
     );
 
@@ -33,7 +33,9 @@ module.exports = {
       config: { uri: config.okta.url },
       password: config.cookieSecret,
       isSecure,
-      location: config.url,
+      // bell appends req.path to location, so it's necessary to trim off
+      // the trailing '/' from location to avoid double slashes in path
+      location: config.url.replace(/\/$/, ''),
       clientId: config.okta.clientId,
       clientSecret: config.okta.clientSecret,
     });

@@ -5,12 +5,13 @@ const {
   HOST,
   PORT,
   HOST_URL,
+  APP_URL,
+  IS_SSL,
   DATABASE,
   DB_USER,
   DB_PASSWORD,
   DB_HOST,
   DB_PORT,
-  DB_URL,
   COOKIE_SECRET,
   OKTA_ORG_URL,
   OKTA_CLIENT_ID,
@@ -19,8 +20,10 @@ const {
 
 module.exports = {
   host: HOST,
-  port: PORT,
+  port: PORT || 3000,
   url: HOST_URL,
+  appURL: APP_URL || '/',
+  isSSL: IS_SSL,
   cookieSecret: COOKIE_SECRET,
   sqlConfig: {
     host: DB_HOST,

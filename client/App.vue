@@ -180,7 +180,7 @@ export default {
         description: this.description,
       };
       axios
-        .post('/api/events', event)
+        .post('api/events', event)
         .then(() => {
           this.startDate = '';
           this.startTime = '';
@@ -207,7 +207,7 @@ export default {
     },
     deleteEvent(id) {
       axios
-        .delete(`/api/events/${id}`)
+        .delete(`api/events/${id}`)
         .then(this.loadEvents)
         .catch(err => {
           this.msg = err.message;
@@ -236,7 +236,7 @@ export default {
     },
     loadEvents() {
       axios
-        .get('/api/events')
+        .get('api/events')
         .then(res => {
           this.isLoading = false;
           this.events = this.formatEvents(res.data);

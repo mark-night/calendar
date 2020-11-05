@@ -1,6 +1,7 @@
 'use strict';
 
 const boom = require('@hapi/boom');
+const { appURL } = require('../config');
 
 const login = {
   method: 'GET',
@@ -23,7 +24,7 @@ const oAuthCallback = {
     }
     // set session cookie if authenticated
     req.cookieAuth.set(req.auth.credentials);
-    return h.redirect('/');
+    return h.redirect(appURL);
   },
   options: { auth: 'okta' },
 };
@@ -36,7 +37,7 @@ const logout = {
       if (req.auth.isAuthenticated) {
         req.cookieAuth.clear();
       }
-      return h.redirect('/');
+      return h.redirect(appURL);
     } catch (error) {
       console.log(error);
     }

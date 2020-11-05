@@ -2,6 +2,7 @@
 
 const api = require('./api');
 const auth = require('./auth');
+const { appURL } = require('../config');
 
 module.exports = [
   ...auth,
@@ -11,7 +12,11 @@ module.exports = [
     method: 'GET',
     path: '/',
     handler: async (req, h) =>
-      h.view('index', { title: 'Personal Calendar', message: 'Welcome!' }),
+      h.view('index', {
+        title: 'Personal Calendar',
+        message: 'Welcome!',
+        appURL,
+      }),
     options: {
       auth: { mode: 'try' },
     },

@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:10.14-alpine
+    ports:
+      - '5432:5432'
+    volumes:
+      - db_pg:/var/lib/postgresql/data
+    restart: always
+
+  calendar:
+    build: .
+    volumes:
+      - ./:/code
+    depends_on:
+      - postgres
+    ports:
+      - '80:3000'
+    env_file: .env
+    environment:
+      IS_SSL: 'FALSE'
+
+volumes:
+  db_pg:
+    external:
+      name: meetm_db_pg

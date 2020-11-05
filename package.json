@@ -1,7 +1,7 @@
 {
   "name": "calendar",
   "version": "1.0.0",
-  "description": "A personal calendar with backend of node + postgresql",
+  "description": "A personal calendar app. Frontend: Vue. Backend: Node + PostgreSQL.",
   "main": "src/app.js",
   "scripts": {
     "dev": "nodemon --watch client --watch src -e js,ejs,sql,vue,css --exec npm run dev:start",
