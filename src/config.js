@@ -21,7 +21,7 @@ const {
 module.exports = {
   host: HOST,
   port: PORT || 3000,
-  url: HOST_URL,
+  url: HOST_URL + (PORT === 80 ? '' : `:${PORT}`),
   appURL: APP_URL || '/',
   isSSL: IS_SSL,
   cookieSecret: COOKIE_SECRET,

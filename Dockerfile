@@ -1,12 +1,10 @@
-FROM  node:erbium-alpine
-ENV NODE_ENV=production
+FROM --platform=linux/amd64  node:erbium-alpine
+LABEL io.meetm.app="calendar" release="20210515" maintainer="Mark Ye <mark@meetm.io>"
 
-WORKDIR /code
-COPY package*.json ./
+WORKDIR /app
+COPY . .
 RUN npm install --production
 
-COPY . .
+EXPOSE 80
 
-EXPOSE ${PORT:-3000}
-
-CMD ["node", "."]
+CMD "node ."
