@@ -5,7 +5,6 @@ const {
   HOST,
   PORT,
   HOST_URL,
-  APP_URL,
   IS_SSL,
   DATABASE,
   DB_USER,
@@ -21,8 +20,8 @@ const {
 module.exports = {
   host: HOST,
   port: PORT || 3000,
-  url: HOST_URL + (PORT === 80 ? '' : `:${PORT}`),
-  appURL: APP_URL || '/',
+  url: HOST_URL,
+  appURL: HOST_URL + '/',
   isSSL: IS_SSL,
   cookieSecret: COOKIE_SECRET,
   sqlConfig: {
